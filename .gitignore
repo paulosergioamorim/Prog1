@@ -1,0 +1,4 @@
+!.gitignore
+!*.c
+!run_tests.sh
+!.vscode
