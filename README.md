@@ -1,0 +1,1 @@
+Exercícios na linguagem de programação C da disciplina de Programação I (Prog1) do curso de bacharel de Ciência da Computação na Universidade Federal do Espírito Santo (Ufes), ministrada pelo professor Thiago Oliveira dos Santos.
