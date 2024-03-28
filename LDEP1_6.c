@@ -2,20 +2,22 @@
 
 int main()
 {
-	int l, c, i, j, soma, atual = 0;
+	int l, c, i, j, total = 0, soma, atual = 0;
 	scanf("%d %d", &l, &c);
 
-	for (i = 0; i < c; i++)
+	for (i = 0; i < l; i++)
 	{
-		for (j = 0; j < l; j++)
+		for (j = 0; j < c; j++)
 		{
 			scanf("%d", &atual);
 			soma += atual;
 		}
 		printf("%d\n", soma);
+		total += soma;
+		soma = 0;
 	}
 
-	printf("%d\n", soma);
+	printf("%d\n", total);
 
 	return 0;
 }
