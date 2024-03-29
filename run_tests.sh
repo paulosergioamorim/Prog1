@@ -2,7 +2,7 @@
 
 SOURCE=/mnt/c/Users/pamor/Downloads/"$1"/input
 
-gcc -o prog "$1".c
+gcc -o prog "$1".c $2
 
 NUM_TESTS=$(find "$SOURCE" -type f | wc -l)
 
