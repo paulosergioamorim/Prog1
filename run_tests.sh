@@ -1,16 +1,19 @@
 #!/bin/bash
 
-SOURCE=/mnt/c/Users/pamor/Downloads/"$1"/input
+SOURCE=/mnt/c/Users/pamor/Downloads/"$1"
+OUT_DIR=tests
 
-gcc -o prog "$1".c $2
+if [ ! -d "$OUT_DIR" ]; then
+    mkdir "$OUT_DIR"
+fi
 
-NUM_TESTS=$(find "$SOURCE" -type f | wc -l)
+rm "$OUT_DIR"/*
 
-for n in $(seq 1 "$NUM_TESTS");
-do
-    ./prog < /mnt/c/Users/pamor/Downloads/"$1"/input/test_"$n" > ./test_"$n"
-    diff /mnt/c/Users/pamor/Downloads/"$1"/output/test_"$n" ./test_"$n"
-    rm ./test_"$n"
+gcc -o "$OUT_DIR"/prog "$1".c $2
+
+for file in "$SOURCE"/input/*; do
+    TEST=$(basename -- "$file")
+    echo "\e[1mTesting "$TEST"\e[0m"
+    "$OUT_DIR"/prog < "$SOURCE"/input/"$TEST" > "$OUT_DIR"/"$TEST"
+    diff "$SOURCE"/output/"$TEST" "$OUT_DIR"/"$TEST"
 done
-
-rm ./prog

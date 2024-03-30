@@ -6,7 +6,7 @@ int main(int argc, char const *argv[])
     int i = 0;
     int max = 0;
     int min = 0;
-    int even =0;
+    int even = 0;
     int odd = 0;
     int sum = 0;
     double avg = 0;
