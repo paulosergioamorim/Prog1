@@ -9,12 +9,12 @@ int main(int argc, char const *argv[])
 
     for (i = 0; i < strlen(s); i++)
     {
-        if (s[i] == ' ')
-            s[i] = '_';
+        if (s[i] >= 97 && s[i] <= 122)
+            s[i] -= 32;
         if (s[i] == '?' || s[i] == '!' || s[i] == '.')
             break;
     }
 
-    printf("RESP:%s", s);
+    printf("%s", s);
     return 0;
 }
