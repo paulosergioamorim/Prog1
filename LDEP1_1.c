@@ -3,7 +3,7 @@
 
 int main(int argc, char const *argv[])
 {
-    int a, b, c, d;
+    int a, b, c, d = 0;
 
 	scanf("%d", &d);
     while(a < d){

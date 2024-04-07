@@ -2,25 +2,27 @@
 
 int main(int argc, char const *argv[])
 {
-    int nums[100] = {};
     int pos = 0;
     int neg = 0;
     int sumPos = 0;
     int sumNeg = 0;
-    size_t i = 0;
+    int i = 0;
+    char c = 0;
 
-    for (i = 0; 1; i++)
+    while (scanf("%d%c", &i, &c) > 0)
     {
-        char c = '\0';
-        scanf("%d%c", &nums[i], &c);
-        if (nums[i] >= 0) {
+        if (i > 0)
+        {
             pos++;
-            sumPos += nums[i];
-        } else {
-            neg++;
-            sumNeg += nums[i];
+            sumPos += i;
         }
-        if (c != 32)
+        else if (i < 0)
+        {
+            neg++;
+            sumNeg += i;
+        }
+
+        if (c == '\n' || c == '\0')
             break;
     }
 
