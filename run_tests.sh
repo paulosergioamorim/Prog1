@@ -1,19 +1,19 @@
 #!/bin/bash
 
 SOURCE=/mnt/c/Users/pamor/Downloads/"$1"
-OUT_DIR=tests
+OUTPUT=tests
 
-if [ ! -d "$OUT_DIR" ]; then
-    mkdir "$OUT_DIR"
+if [ ! -d "$OUTPUT" ]; then
+    mkdir "$OUTPUT"
 fi
 
-rm "$OUT_DIR"/*
+rm "$OUTPUT"/*
 
-gcc -o "$OUT_DIR"/prog "$1".c $2
+gcc -o "$OUTPUT"/prog "$1".c $2
 
 for file in "$SOURCE"/input/*; do
     TEST=$(basename -- "$file")
     echo "\e[1mTesting "$TEST"\e[0m"
-    "$OUT_DIR"/prog < "$SOURCE"/input/"$TEST" > "$OUT_DIR"/"$TEST"
-    diff "$SOURCE"/output/"$TEST" "$OUT_DIR"/"$TEST"
+    "$OUTPUT"/prog < "$SOURCE"/input/"$TEST" > "$OUTPUT"/"$TEST"
+    diff "$SOURCE"/output/"$TEST" "$OUTPUT"/"$TEST"
 done

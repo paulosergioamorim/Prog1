@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-float f_x(float a, float b, float c, float d, int x)
+float fX(float a, float b, float c, float d, int x)
 {
     return a * x * x * x + b * x * x + c * x + d;
 }
@@ -20,42 +20,39 @@ int main(int argc, char const *argv[])
 
     scanf("%f %f %f %f %d %d", &a, &b, &c, &d, &e, &f);
 
-    p, v = f + 1;
+    p = f + 1;
+    v = f + 1;
 
-    for (i = e; i <= f; i++)
+    for (i = e + 1; i <= f - 1; i++)
     {
-        if (i == e)
-        {
-            if (f_x(a, b, c, d, i) > f_x(a, b, c, d, i + 1))
-                p = i;
-            else if (f_x(a, b, c, d, i) < f_x(a, b, c, d, i + 1))
-                v = i;
-            continue;
-        }
-
-        if (f_x(a, b, c, d, i - 1) < f_x(a, b, c, d, i) && f_x(a, b, c, d, i) > f_x(a, b, c, d, i + 1))
+        if (fX(a, b, c, d, i - 1) < fX(a, b, c, d, i) && fX(a, b, c, d, i) > fX(a, b, c, d, i + 1))
             p = i;
-        else if (f_x(a, b, c, d, i - 1) > f_x(a, b, c, d, i) && f_x(a, b, c, d, i) < f_x(a, b, c, d, i + 1))
+        if (fX(a, b, c, d, i - 1) > fX(a, b, c, d, i) && fX(a, b, c, d, i) < fX(a, b, c, d, i + 1))
             v = i;
-
-        if (i == f)
-        {
-            if (f_x(a, b, c, d, i - 1) < f_x(a, b, c, d, i))
-                p = i;
-            else if (f_x(a, b, c, d, i - 1) > f_x(a, b, c, d, i))
-                v = i;
-            continue;
-        }
     }
 
-    if (p >= e && p <= f)
-        printf("Pico em x=%d\n", p);
+    if (p < v)
+    {
+        if (p >= e && p <= f)
+            printf("Pico em x=%d\n", p);
+        if (v >= e && v <= f)
+            printf("Vale em x=%d\n", v);
+        if (p < e || p > f)
+            printf("Nao ha pico\n");
+        if (v < e || v > f)
+            printf("Nao ha vale");
+    }
     else
-        printf("Nao ha pico");
-    if (v >= e && v <= f)
-        printf("Vale em x=%d\n", v);
-    else
-        printf("Nao ha vale");
+    {
+        if (v >= e && v <= f)
+            printf("Vale em x=%d\n", v);
+        if (p >= e && p <= f)
+            printf("Pico em x=%d\n", p);
+        if (p < e || p > f)
+            printf("Nao ha pico\n");
+        if (v < e || v > f)
+            printf("Nao ha vale");
+    }
 
     return 0;
 }
