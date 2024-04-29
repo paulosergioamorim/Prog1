@@ -3,7 +3,6 @@
 
 int main(int argc, char const *argv[])
 {
-    char checkboard[8][8];
     char key = '\0';
     int x = 0;
     int y = 0;
@@ -11,7 +10,7 @@ int main(int argc, char const *argv[])
     while (1)
     {
         printf("\nMenu:\nR - Rei\nT - Torre\nQ - Sair\nEscolha uma opcao: \n");
-        scanf(" %c", &key);
+        scanf("%c", &key);
 
         if (key == 'Q')
             return 0;
@@ -23,19 +22,16 @@ int main(int argc, char const *argv[])
         }
 
         printf("Indique a coordenada (X,Y):\n");
-        scanf("%d %d", &x, &y);
-        x--;
-        y--;
-        
-        for (int i = 0; i < 8; i++)
+        scanf("%d %d%*c", &x, &y);
+
+        for (int i = 1; i <= 8; i++)
         {
-            for (int j = 0; j < 8; j++)
+            for (int j = 1; j <= 8; j++)
             {
                 if (key == 'T')
-                    checkboard[i][j] = (x == i || y == j) ? 'X' : '-';
+                    printf((x == i || y == j) ? "X " : "- ");
                 else
-                    checkboard[i][j] = (abs(x - i) <= 1 && abs(y - j) <= 1) ? 'X' : '-';
-                printf("%c ", checkboard[i][j]);
+                    printf((abs(x - i) <= 1 && abs(y - j) <= 1) ? "X " : "- ");
             }
             printf("\n");
         }
