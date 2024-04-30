@@ -9,14 +9,14 @@ int main(int argc, char const *argv[])
     int n = 0;
     scanf("%d", &n);
 
-    while (n >= 10)
+    do
     {
         n = somadosdigitos(n);
         printf("%d ", n);
         parimpar(n);
         valorPrimo(n);
         printf("\n");
-    }
+    } while (n >= 10);
 
     return 0;
 }
