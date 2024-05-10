@@ -1,23 +1,23 @@
 #include <stdio.h>
 
-void sum(float *acc, float cur)
+float sum(float x, float y)
 {
-    *acc += cur;
+    return x + y;
 }
 
-void sub(float *acc, float cur)
+float sub(float x, float y)
 {
-    *acc -= cur;
+    return x - y;
 }
 
-void mul(float *acc, float cur)
+float mul(float x, float y)
 {
-    *acc *= cur;
+    return x * y;
 }
 
-void div(float *acc, float cur)
+float div(float x, float y)
 {
-    *acc /= cur;
+    return x / y;
 }
 
 int main(int argc, char const *argv[])
@@ -33,16 +33,16 @@ int main(int argc, char const *argv[])
         switch (operation)
         {
         case '+':
-            sum(&result, number);
+            result = sum(result, number);
             break;
         case '-':
-            sub(&result, number);
+            result = sub(result, number);
             break;
         case '*':
-            mul(&result, number);
+            result = mul(result, number);
             break;
         case '/':
-            div(&result, number);
+            result = div(result, number);
             break;
         }
     }

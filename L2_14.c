@@ -1,22 +1,20 @@
 #include <stdio.h>
-#include <string.h>
-
-void remove_spaces(char *s)
-{
-    char *d = s;
-    do
-        while (*d == ' ')
-            ++d;
-    while (*s++ = *d++);
-}
 
 int main(int argc, char const *argv[])
 {
-    char s[100] = "";
-    scanf("%[^\n]", s);
-    int i = 0;
-    int j = 0;
-    remove_spaces(s);
-    printf("RESP:%s", s);
+    char c = 0;
+
+    printf("RESP:");
+
+    while (!(c == '?' || c == '!' || c == '.'))
+    {
+        scanf("%c", &c);
+
+        if (c == ' ')
+            continue;
+
+        printf("%c", c);
+    }
+
     return 0;
 }

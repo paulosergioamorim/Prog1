@@ -1,20 +1,25 @@
 #include <stdio.h>
-#include <string.h>
+
+int is_lower_letter(char letter);
 
 int main(int argc, char const *argv[])
 {
-    char s[100] = "";
-    scanf("%[^\n]", s);
-    size_t i = 0;
+    char c = 0;
 
-    for (i = 0; i < strlen(s); i++)
+    while (!(c == '?' || c == '!' || c == '.'))
     {
-        if (s[i] >= 97 && s[i] <= 122)
-            s[i] -= 32;
-        if (s[i] == '?' || s[i] == '!' || s[i] == '.')
-            break;
+        scanf("%c", &c);
+
+        if (is_lower_letter(c))
+            c += 'A' - 'a';
+
+        printf("%c", c);
     }
 
-    printf("%s", s);
     return 0;
+}
+
+int is_lower_letter(char letter)
+{
+    return 'a' <= letter && letter <= 'z';
 }

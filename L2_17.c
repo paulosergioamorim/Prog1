@@ -1,39 +1,47 @@
 #include <stdio.h>
-#include <string.h>
+
+int is_lower_letter(char letter);
 
 int main(int argc, char const *argv[])
 {
 	int i = 0;
 	int j = 0;
-	int k = 0;
-	char s[100] = "";
-	scanf("%d %d %[^.]", &i, &j, s);
+	char c = 0;
 
-	for (k = 0; k < strlen(s); k++)
+	scanf("%d %d%*[ ]", &i, &j);
+
+	while (c != '.')
 	{
-		if (s[k] >= 97 && s[k] <= 122)
+		scanf("%c", &c);
+
+		if (is_lower_letter(c))
 		{
-			if (i == 1)
+			switch (i)
 			{
-				s[k] += j % 26;
-				if (s[k] > 122)
-					s[k] -= 26;			
-			}
-			else if (i == 2)
-			{
-				s[k] -= j % 26;
-				if (s[k] < 97)
-					s[k] += 26;
-			}
-			else
-			{
+			case 0:
+				printf("Operacao invalida.");
+				return 0;
+			case 1:
+				c += j % 26;
+				if (!is_lower_letter(c))
+					c += 'a' - 'z' - 1;
+				break;
+			case 2:
+				c -= j % 26;
+				if (!is_lower_letter(c))
+					c += 'z' - 'a' + 1;
+				break;
+			default:
 				printf("Operacao invalida.");
 				return 0;
 			}
 		}
+
+		printf("%c", c);
 	}
+}
 
-	printf("%s.", s);
-
-	return 0;
+int is_lower_letter(char letter)
+{
+	return 'a' <= letter && letter <= 'z';
 }

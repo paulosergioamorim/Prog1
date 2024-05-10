@@ -1,23 +1,38 @@
 #include <stdio.h>
-#include <string.h>
 
 int main(int argc, char const *argv[])
 {
-    char str[100];
+    char c = 0;
+    int count = 0;
     int i = 0;
-    scanf("%s", str);
 
     printf("RESP:");
-    for (i = 0; i < strlen(str); i++)
+
+    while (c != '.')
     {
-        if (str[i] != '(')
+        scanf("%c", &c);
+
+        if (c != '(')
             continue;
 
-        for (i += 1; str[i] != ')' || str[i + 1] == ')'; i++)
-            printf("%c", str[i]);
+        for (count = 0; c == '('; count++)
+        {
+            scanf("%c", &c);
+            if (count > 0)
+                printf("(");
+        }
 
-        if (str[i + 1] == '.')
-            break;
+        while (c != ')')
+        {
+            printf("%c", c);
+            scanf("%c", &c);
+        }
+
+        for (count; count > 1; count--)
+        {
+            scanf("%c", &c);
+            printf(")");
+        }
     }
 
     return 0;
