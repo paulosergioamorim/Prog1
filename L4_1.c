@@ -25,7 +25,12 @@ int main(int argc, char const *argv[])
     for (i = 0; i < n; i++)
     {
         tProduto produto = LeProduto();
-        ImprimeProduto(produto);
+
+        if (!TemProdutoEmEstoque(produto))
+        {
+            printf("FALTA:");
+            ImprimeProduto(produto);
+        }
 
         if (EhProduto1MaiorQ2(produto, maiorProduto))
             maiorProduto = produto;
@@ -34,8 +39,10 @@ int main(int argc, char const *argv[])
             menorProduto = produto;
     }
 
-    printf("MAIOR:COD %d, PRE %.2f, QTD %d\n", maiorProduto.codigo, maiorProduto.preco, maiorProduto.estoque);
-    printf("MENOR:COD %d, PRE %.2f, QTD %d\n", menorProduto.codigo, menorProduto.preco, menorProduto.estoque);
+    printf("MAIOR:");
+    ImprimeProduto(maiorProduto);
+    printf("MENOR:");
+    ImprimeProduto(menorProduto);
 
     return 0;
 }
@@ -64,6 +71,5 @@ int TemProdutoEmEstoque(tProduto p)
 
 void ImprimeProduto(tProduto p)
 {
-    if (!TemProdutoEmEstoque(p))
-        printf("FALTA:COD %d, PRE %.2f, QTD %d\n", p.codigo, p.preco, p.estoque);
+    printf("COD %d, PRE %.2f, QTD %d\n", p.codigo, p.preco, p.estoque);
 }
