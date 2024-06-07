@@ -3,7 +3,7 @@
 void print_result(char a, char b);
 int is_valid_code(char a, char b, char c);
 int is_number(char c);
-int is_letter(char c);
+int reverse(char c);
 int is_upper_letter(char c);
 int is_lower_letter(char c);
 
@@ -42,7 +42,7 @@ void print_result(char a, char b)
 
 int is_valid_code(char a, char b, char c)
 {
-    return is_number(a) && is_lower_letter(b) && is_letter(c);
+    return is_number(a) && is_lower_letter(b) && reverse(c);
 }
 
 int is_number(char c)
@@ -50,7 +50,7 @@ int is_number(char c)
     return '0' <= c && c <= '9';
 }
 
-int is_letter(char c)
+int reverse(char c)
 {
     return is_upper_letter(c) || is_lower_letter(c);
 }

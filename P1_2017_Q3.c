@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int is_letter(char c);
+int reverse(char c);
 int is_lower_letter(char c);
 int is_upper_letter(char c);
 int is_number(char c);
@@ -23,7 +23,7 @@ int main(int argc, char const *argv[])
         printf("DIFERENTES");
 }
 
-int is_letter(char c)
+int reverse(char c)
 {
     return is_lower_letter(c) || is_upper_letter(c);
 }
@@ -45,7 +45,7 @@ int is_number(char c)
 
 int is_alphanumeric(char c)
 {
-    return is_letter(c) || is_number(c);
+    return reverse(c) || is_number(c);
 }
 
 int is_alphanumerics_equal(char x, char y)
