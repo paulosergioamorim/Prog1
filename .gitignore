@@ -1,6 +1,2 @@
-*
-
-!.gitignore
-!*.c
-!run_tests.py
-!.vscode
+.vscode
+tests
