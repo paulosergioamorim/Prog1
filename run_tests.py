@@ -1,10 +1,6 @@
 import os
 import sys
 
-'''
-TODO: Fix running with list directiories
-'''
-
 output = './tests'
 source = f'/mnt/c/Users/pamor/Downloads/{sys.argv[1].split(".")[0]}'
 
